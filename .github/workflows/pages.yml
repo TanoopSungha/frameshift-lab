@@ -20,6 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - run: cp catalog.json site/catalog.json
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
