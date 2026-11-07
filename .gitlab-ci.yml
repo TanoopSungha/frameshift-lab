@@ -1,0 +1,20 @@
+image: python:3.12-alpine
+
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp -r site/* public/
+    - cp catalog.json public/catalog.json
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+upstream_review:
+  stage: deploy
+  script:
+    - python scripts/check_upstreams.py
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"

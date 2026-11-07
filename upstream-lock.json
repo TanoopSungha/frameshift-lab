@@ -1,0 +1,17 @@
+{
+  "note": "Baseline commit IDs are populated by the first scheduled GitLab review run; this file records pointers only, not copied source.",
+  "repositories": [
+    "storytold/craft-anything",
+    "morluto/rea",
+    "boykopovar/AnyPS5",
+    "NationalSecurityAgency/ghidra",
+    "x64dbg/x64dbg",
+    "dnSpyEx/dnSpy",
+    "icsharpcode/ILSpy",
+    "K0lb3/UnityPy",
+    "ReClassNET/ReClass.NET",
+    "radareorg/radare2",
+    "baldurk/renderdoc",
+    "kaitai-io/kaitai_struct"
+  ]
+}
