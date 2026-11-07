@@ -7,7 +7,7 @@ FrameShift brings together the agent workflow ideas behind [Craft Anything](http
 ## What makes this hub useful
 
 - Search and compare tools by specialty, platform and license.
-- Follow question-led playbooks for native binaries, managed code, Android, formats, runtime behavior, graphics, networking and compatibility.
+- Follow question-led playbooks for native binaries, managed code, Android, formats, runtime behavior, graphics, networking and compatibility. The path selector is transparent, keyword-based guidance; it does not claim AI understanding or rank tools as objectively best.
 - Keep a local notebook with separate observation, verified fact, hypothesis and interpretation labels.
 - Record source links and authorization scope; export a portable JSON project or Markdown report.
 - Calculate a SHA-256 digest for a selected local file in the browser. File bytes are never uploaded by the site.
@@ -25,7 +25,7 @@ Do not put passwords, private keys, account information, personal data, copyrigh
 
 GitLab is the intended canonical home. Import this repository into a GitLab project named `frameshift-lab`, set it as the source of truth, and enable **Settings → Pages**. The included `.gitlab-ci.yml` publishes `site/` and `catalog.json`. GitHub Pages is currently a live discovery copy.
 
-The site is static and has no external JavaScript dependencies. The GitHub Actions workflow publishes `site/` plus the catalog JSON.
+The site is static and has no external JavaScript dependencies, analytics, AI service or research backend. It only fetches its catalog from the same host; question matching and workflow selection run in the browser. The GitHub Actions workflow publishes `site/` plus the catalog JSON.
 
 ## Reviewed upstream updates
 
