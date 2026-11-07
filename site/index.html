@@ -1,23 +1,108 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="A curated field guide to reverse engineering research tools for games and software.">
-<title>FrameShift Lab — understand how software works</title>
-<style>
-:root{color-scheme:dark;--bg:#101314;--panel:#181d1e;--line:#30393a;--ink:#edf2ed;--muted:#a8b4af;--lime:#c8f169;--cyan:#80d9d0}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 90% 0%,#20312d 0,transparent 32rem),var(--bg);color:var(--ink);font:16px/1.55 ui-sans-serif,system-ui,-apple-system,sans-serif}a{color:var(--cyan)}.wrap{max-width:1120px;margin:auto;padding:32px 24px 80px}header{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--line);padding-bottom:18px}.brand{font-weight:800;letter-spacing:.02em}.brand b{color:var(--lime)}nav{display:flex;gap:20px;font-size:.9rem}nav a{color:var(--muted);text-decoration:none}.hero{padding:74px 0 48px;max-width:830px}.eyebrow{text-transform:uppercase;letter-spacing:.16em;color:var(--lime);font-size:.76rem;font-weight:700}.hero h1{font-size:clamp(2.8rem,7vw,5.6rem);line-height:.99;letter-spacing:-.06em;margin:14px 0 20px}.hero p{font-size:1.15rem;color:var(--muted);max-width:680px}.hero strong{color:var(--ink)}.callout{border:1px solid #556746;background:#192019;border-radius:14px;padding:16px 18px;margin:26px 0;color:#dce8d5}.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}.toolbar input,.toolbar select{background:var(--panel);border:1px solid var(--line);color:var(--ink);border-radius:9px;padding:12px 14px;font:inherit}.toolbar input{flex:1;min-width:220px}.toolbar select{min-width:190px}.count{color:var(--muted);font-size:.9rem;margin:8px 0 14px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}.card{background:linear-gradient(150deg,#1b2222,#15191a);border:1px solid var(--line);border-radius:15px;padding:19px;display:flex;flex-direction:column;min-height:215px}.card h2{font-size:1.15rem;margin:0 0 8px}.card h2 a{color:var(--ink);text-decoration:none}.card h2 a:hover{color:var(--lime)}.card p{color:var(--muted);margin:0 0 16px;flex:1}.meta{display:flex;flex-wrap:wrap;gap:7px}.tag{font-size:.73rem;border:1px solid var(--line);padding:4px 8px;border-radius:999px;color:#c5d0cb}.tag.primary{color:var(--lime);border-color:#526044}.section{margin-top:68px}.section h2{font-size:1.7rem;letter-spacing:-.03em}.section p{color:var(--muted);max-width:760px}.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.step{border-top:2px solid var(--lime);padding:14px;background:#161b1c;border-radius:0 0 12px 12px}.step b{display:block;margin-bottom:7px}.footer{border-top:1px solid var(--line);margin-top:64px;padding-top:22px;color:var(--muted);font-size:.85rem} @media(max-width:560px){header{align-items:flex-start;flex-direction:column}.hero{padding-top:52px}nav{gap:14px}}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A private, evidence-first research workbench and tool guide for games and software.">
+<meta name="theme-color" content="#111615">
+<title>FrameShift Lab — Research Workbench</title>
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./app.css">
 </head>
-<body><div class="wrap">
-<header><div class="brand">FRAME<b>SHIFT</b> LAB</div><nav><a href="#catalog">Tool catalog</a><a href="#method">How to use</a><a href="https://github.com/TanoopSungha/frameshift-lab">Source</a></nav></header>
-<main>
-<section class="hero"><div class="eyebrow">Research tools · Games + software</div><h1>Understand what’s<br>under the hood.</h1><p>A practical, growing field guide for studying <strong>any game or tool</strong>—from file formats and managed code to graphics, binaries, and runtime behavior.</p><div class="callout"><strong>One hub, many disciplines.</strong> Inspired by Craft Anything, REA, and AnyPS5, with links to independent tools. We catalogue pointers and research workflows; we do not redistribute game content or upstream code.</div></section>
-<section id="catalog"><h2>Explore the catalog</h2><div class="toolbar"><input id="search" type="search" placeholder="Search tools, platforms, formats…" aria-label="Search catalog"><select id="category" aria-label="Filter by category"><option value="">All categories</option></select></div><div class="count" id="count" aria-live="polite"></div><div class="grid" id="grid"></div></section>
-<section class="section" id="method"><h2>Research with care</h2><p>Use tools on software and devices you own or have permission to inspect. Laws, licenses, service terms, and anti-cheat rules vary; check them before you begin.</p><div class="steps"><div class="step"><b>01 · Choose a question</b>Study behavior, compatibility, a file format, accessibility, preservation, or a security issue within an authorized scope.</div><div class="step"><b>02 · Work from lawful inputs</b>Use your own builds, open-source samples, vendor SDKs, or explicitly authorized test targets. Keep game assets, firmware, keys, and personal data out of this hub.</div><div class="step"><b>03 · Record evidence</b>Document tool versions, provenance, observations, uncertainty, and reproducible steps. Separate facts from hypotheses.</div><div class="step"><b>04 · Share responsibly</b>Respect each project’s license and disclosure process. No DRM or access-control bypass, anti-cheat evasion, or unauthorized paid content.</div></div></section>
-<section class="section"><h2>How the hub stays current</h2><p>GitLab is the planned canonical home. A scheduled check watches the listed upstream repositories and proposes metadata-only merge requests when their commits move. Every change gets human review; nothing is silently merged or copied into this catalog.</p></section>
-</main><footer class="footer">FrameShift Lab · Original site text and code: MIT · Catalog projects retain their own licenses and terms. Last catalog review: <span id="updated">loading</span>.</footer>
-</div><script>
-const grid=document.querySelector('#grid'),search=document.querySelector('#search'),category=document.querySelector('#category'),count=document.querySelector('#count');let entries=[];
-function render(){const q=search.value.toLowerCase().trim(),cat=category.value;const shown=entries.filter(e=>(!cat||e.category===cat)&&(!q||[e.name,e.category,e.scope,e.summary,e.license].join(' ').toLowerCase().includes(q)));count.textContent=`${shown.length} ${shown.length===1?'project':'projects'} · ${entries.length} total`;grid.innerHTML=shown.map(e=>`<article class="card"><h2><a href="${e.url}" target="_blank" rel="noopener noreferrer">${e.name} ↗</a></h2><p>${e.summary}</p><div class="meta"><span class="tag primary">${e.category}</span><span class="tag">${e.scope}</span><span class="tag">${e.license}</span></div></article>`).join('')||'<p>No matches. Try a broader search.</p>'}
-fetch('./catalog.json').then(r=>r.json()).then(data=>{entries=data.entries;document.querySelector('#updated').textContent=data.updated;[...new Set(entries.map(e=>e.category))].sort().forEach(c=>category.add(new Option(c,c)));render()}).catch(()=>{count.textContent='Catalog could not be loaded.'});search.addEventListener('input',render);category.addEventListener('change',render);
-</script></body></html>
+<body>
+<header class="topbar">
+  <a class="brand" href="#explore" aria-label="FrameShift Lab home"><span class="brand-mark">F</span><span>FrameShift <b>Lab</b></span></a>
+  <div class="top-caption">Research workbench <span class="dot">·</span> games + software</div>
+  <div class="privacy-pill" title="Notes stay in this browser unless you export them"><span class="lock">▣</span> Local-only workspace</div>
+  <a class="top-link" href="https://github.com/TanoopSungha/frameshift-lab" target="_blank" rel="noopener noreferrer">Source ↗</a>
+</header>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Workspace navigation">
+    <div class="nav-label">WORKSPACE</div>
+    <button class="nav-item active" data-view="explore" aria-label="Explore tools"><span class="nav-icon">⌕</span>Explore tools</button>
+    <button class="nav-item" data-view="workbench" aria-label="Workbench"><span class="nav-icon">▤</span>Workbench</button>
+    <button class="nav-item" data-view="playbooks" aria-label="Playbooks"><span class="nav-icon">◈</span>Playbooks</button>
+    <div class="side-rule"></div>
+    <label class="nav-label" for="project-picker">CURRENT PROJECT</label>
+    <select id="project-picker" class="project-picker" aria-label="Select research project"></select>
+    <button class="new-project" id="new-project">＋ New project</button>
+    <div class="side-note"><span class="local-dot"></span><span>Your notes stay on this device.<br>Export to move them elsewhere.</span></div>
+    <div class="side-bottom"><span>FRAME SHIFT LAB</span><span id="catalog-stamp">Catalog · loading</span></div>
+  </aside>
+
+  <main class="main" id="main-content">
+    <section id="view-explore" class="view">
+      <div class="main-heading"><div><div class="overline">FIND YOUR NEXT TOOL</div><h1>Start with a question.</h1><p>Compare independent tools and build a research path that fits your target.</p></div><div class="tool-count" id="tool-count">— tools</div></div>
+      <div class="query-row"><label class="sr-only" for="question">Research question</label><input id="question" class="question-input" type="search" placeholder="e.g. How is this file format structured?" autocomplete="off"><button id="plan-button" class="button primary">Build a path <span>→</span></button></div>
+      <div class="filter-row">
+        <label>Discipline<select id="filter-category"><option value="">All disciplines</option></select></label>
+        <label>Platform<select id="filter-platform"><option value="">Any platform</option></select></label>
+        <label>License<select id="filter-license"><option value="">Any license</option></select></label>
+        <button id="reset-filters" class="reset-button">Reset</button>
+      </div>
+      <div class="content-grid">
+        <div class="catalog-column">
+          <div class="section-head"><div><h2>Tool landscape</h2><p id="result-count">Loading catalog…</p></div><div class="table-actions"><span id="compare-status">Select up to 3 to compare</span><button class="button quiet small" id="compare-button" disabled>Compare</button></div></div>
+          <div id="comparison" class="comparison-panel hidden"></div>
+          <div class="table-wrap"><table><thead><tr><th class="check-col"><span class="sr-only">Compare</span></th><th>Tool <button class="sort" data-sort="name" aria-label="Sort by tool">↕</button></th><th>Specialty</th><th>Platform</th><th>License</th><th>Approach</th></tr></thead><tbody id="tool-rows"></tbody></table></div>
+          <div id="empty-state" class="empty-state hidden">No matches. Try another filter or search phrase.</div>
+          <p class="table-footnote">License labels are pointers, not legal advice. Check each upstream project’s current terms.</p>
+        </div>
+        <aside class="path-panel" aria-label="Suggested research path">
+          <div class="path-title"><span class="path-symbol">⌁</span><div><h2>Research path</h2><p id="path-subtitle">A practical route from question to evidence.</p></div></div>
+          <ol id="path-steps" class="path-steps"></ol>
+          <div class="path-foot"><span id="path-scope">Choose a discipline to tailor the path.</span><button id="start-workbench" class="button outline">Open workbench ↗</button></div>
+        </aside>
+      </div>
+      <section class="evidence-preview">
+        <div class="evidence-head"><div class="evidence-icon">≡</div><div><h2>Evidence notebook</h2><p id="evidence-caption">Keep observations, sources and interpretations together.</p></div><button id="quick-note" class="button outline small">＋ Add a note</button></div>
+        <div class="evidence-columns"><div><span class="mini-label">RECENT ACTIVITY</span><div id="recent-activity" class="activity-empty">No entries yet. Start a project and record what you find.</div></div><div class="notebook-actions"><button class="button quiet" id="export-json">Export project JSON</button><button class="button quiet" id="export-markdown">Export research notes</button></div></div>
+      </section>
+    </section>
+
+    <section id="view-workbench" class="view hidden">
+      <div class="main-heading"><div><div class="overline">PRIVATE RESEARCH SPACE</div><h1>Workbench.</h1><p>Build a clear record of what you examined, how you examined it, and what the evidence supports.</p></div><div class="workbench-actions"><button id="new-project-main" class="button quiet">＋ New</button><button id="import-project" class="button quiet">Import</button><button id="export-project" class="button primary">Export ↓</button><input id="import-file" type="file" accept="application/json,.json" class="sr-only"></div></div>
+      <label class="mobile-project-picker">Current project<select id="project-picker-mobile" aria-label="Select current research project"></select></label>
+      <div class="workbench-layout">
+        <div class="form-panel">
+          <div class="panel-heading"><span class="step-number">01</span><div><h2>Set your scope</h2><p>Record authorization and the question before analysis.</p></div><span id="save-indicator" class="save-indicator">Saved locally</span></div>
+          <div class="field-grid"><label>Project name<input id="project-name" maxlength="100" placeholder="e.g. Controller support study"></label><label>Target type<select id="project-target"><option>Game</option><option>Desktop application</option><option>Mobile app</option><option>File format</option><option>Runtime or library</option><option>Graphics application</option><option>Network protocol</option><option>Other software</option></select></label></div>
+          <label>Research question<textarea id="project-question" rows="2" maxlength="500" placeholder="What do you want to understand or verify?"></textarea></label>
+          <label>Authorized scope<textarea id="project-scope" rows="2" maxlength="500" placeholder="What software/devices are in scope, and what permission do you have?"></textarea></label>
+          <label class="check-label"><input id="authorized-check" type="checkbox"><span>I confirm this project is limited to software or devices I own or am authorized to examine.</span></label>
+          <div class="panel-divider"></div>
+          <div class="panel-heading compact"><span class="step-number">02</span><div><h2>Log an observation</h2><p>Mark facts, hypotheses and interpretations distinctly.</p></div></div>
+          <div class="field-grid"><label>Entry type<select id="entry-type"><option>Observation</option><option>Verified fact</option><option>Hypothesis</option><option>Interpretation</option><option>Question</option></select></label><label>Confidence<select id="entry-confidence"><option>Unrated</option><option>Low</option><option>Medium</option><option>High</option></select></label></div>
+          <label>What did you learn?<textarea id="entry-text" rows="3" maxlength="2000" placeholder="Describe the evidence or idea. Don't include passwords, private keys or personal data."></textarea></label>
+          <label>Tool or source URL <span class="optional">optional</span><input id="entry-source" type="url" maxlength="500" placeholder="https://…"></label>
+          <button id="add-entry" class="button primary">Add to notebook <span>＋</span></button>
+          <div class="panel-divider"></div>
+          <div class="panel-heading compact"><span class="step-number">03</span><div><h2>Record a source</h2><p>Store references and provenance, not copyrighted files.</p></div></div>
+          <div class="source-row"><label class="grow">Source title<input id="source-title" maxlength="150" placeholder="Project docs, release notes…"></label><label class="grow">Link<input id="source-url" type="url" maxlength="500" placeholder="https://…"></label><button class="button outline" id="add-source">Add source</button></div>
+          <div id="source-list" class="source-list"></div>
+        </div>
+        <aside class="integrity-panel">
+          <div class="integrity-head"><span class="integrity-mark">⌗</span><h2>Artifact integrity</h2></div>
+          <p>Calculate a SHA-256 digest in your browser. The file is not uploaded or saved by FrameShift.</p>
+          <label class="file-picker" for="hash-file"><span>Choose a file to hash</span><small>Bytes stay in this browser session</small></label><input id="hash-file" type="file" class="sr-only">
+          <div id="hash-result" class="hash-result hidden"><span id="hash-filename"></span><code id="hash-value"></code><div class="hash-actions"><button id="copy-hash" class="button quiet small">Copy digest</button><button id="record-hash" class="button outline small">Add digest to notes</button></div></div>
+          <div class="integrity-rule"></div>
+          <h3>Research hygiene</h3>
+          <ul class="hygiene-list"><li>Use original files you may lawfully access.</li><li>Keep extracted assets, firmware and keys out of the notebook.</li><li>Separate observed facts from hypotheses.</li><li>Record versions and preserve your own evidence securely.</li></ul>
+          <div class="storage-note"><span class="local-dot"></span>Notebook data is stored in this browser on this device. Use export/import to back it up or move it.</div>
+        </aside>
+      </div>
+      <section class="timeline-panel"><div class="section-head"><div><h2>Research timeline</h2><p id="timeline-count">0 entries</p></div><button id="clear-project" class="button danger-quiet small">Delete this project</button></div><div id="timeline" class="timeline"></div></section>
+    </section>
+
+    <section id="view-playbooks" class="view hidden">
+      <div class="main-heading"><div><div class="overline">REPEATABLE METHODS</div><h1>Playbooks.</h1><p>Start from a disciplined workflow, then tailor it to your target and permission boundary.</p></div></div>
+      <div class="playbook-grid" id="playbook-grid"></div>
+      <div class="playbook-note"><strong>Each playbook is a checklist, not a promise.</strong> Tool support, licensing and law vary by target. Do not use these workflows to bypass access controls, defeat anti-cheat, or inspect third-party systems without authorization.</div>
+    </section>
+  </main>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="./app.js" defer></script>
+</body>
+</html>
